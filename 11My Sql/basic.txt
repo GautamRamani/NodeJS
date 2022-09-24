@@ -1,0 +1,377 @@
+MongoDB:-
+        MongoDB is a source-available cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with optional schemas. MongoDB is developed by MongoDB Inc.
+
+                                                SQL vs MYSQL
+
+Parameter	                      SQL	                                                MYSQL
+
+
+Definition	    SQL is a Structured Query Language.                 MySQL is an RDBMS tostore, retrieve, modify and administrate a database 
+                It is useful to manage relational databases.        usingSQL.       
+                	
+
+Type	        SQL is a query language.	                        MySQL is database software. It used “SQL” language to query the database.
+
+Support 	    sql server Management studio              	        MySQL offers an integrated tool called ‘MySQL workbench’ to design and develop 
+for connector                                                       databases.
+
+Purpose	        To query and operate database system.	            Allows data handling, storing, modifying, deleting in a tabular format.
+
+Usage	        SQL code and commands are used in various           MYSQL is used as an RDBMS database.
+                DBMS and RDBMS systems including MYSQL.	
+
+Advantages of SQL:-
+                    -Efficient data retrieval
+                    -Easy learning curve
+                    -Standardized language
+                    -Platform compatible
+
+Advantages of NoSQL:-
+                    -Fast query processing
+                    -Easy mapping
+                    -Flexible schemas 
+                    -Horizontal scaling
+                    
+                     
+Database:-
+            A database is a collection of inter-related data,or collection of Structured information.
+
+DBMS (Database Management System) :-
+
+    A database is a collection of inter-related data which helps in the efficient retrieval, insertion, and deletion of data from the database and organizes the data in the form of tables, views, schemas, reports, etc. 
+    
+    For Example, a university database organizes the data about students, faculty, admin staff, etc. which helps in the efficient retrieval, insertion, and deletion of data from it.
+
+    DDL:-
+        DDL is the short name for Data Definition Language, which deals with database schemas and descriptions, of how the data should reside in the database.
+
+            CREATE: to create a database and its objects like (table, index, views, store procedure, function, and triggers)
+            ALTER: alters the structure of the existing database
+            DROP: delete objects from the database
+            TRUNCATE: remove all records from a table, including all spaces allocated for the records are removed
+            COMMENT: add comments to the data dictionary
+            RENAME: rename an object
+
+    DML:-
+        DML is the short name for Data Manipulation Language which deals with data manipulation and includes most common SQL statements such SELECT, INSERT, UPDATE, DELETE, etc., and it is used to store, modify, retrieve, delete and update data in a database.
+
+            SELECT: retrieve data from a database
+            INSERT: insert data into a table
+            UPDATE: updates existing data within a table
+            DELETE: Delete all records from a database table
+            MERGE: UPSERT operation (insert or update)
+            CALL: call a PL/SQL or Java subprogram
+            EXPLAIN PLAN: interpretation of the data access path
+            LOCK TABLE: concurrency Control
+
+Database Management System: 
+    The software which is used to manage databases is called Database Management System (DBMS). For Example, MySQL, Oracle, etc. are popular commercial DBMS used in different applications. DBMS allows users the following tasks: 
+
+        Data Definition: It helps in the creation, modification, and removal of definitions that define the organization of data in the database. 
+        Data Updation: It helps in the insertion, modification, and deletion of the actual data in the database. 
+        Data Retrieval: It helps in the retrieval of data from the database which can be used by applications for various purposes. 
+        User Administration: It helps in registering and monitoring users, enforcing data security, monitoring performance, maintaining data integrity, dealing with concurrency control, and recovering information corrupted by unexpected failure.
+
+
+                                                Querys:-
+
+ex:-
+        create database university;
+        use university;
+        create table student(
+            srno int,
+            rollno int,
+            sname varchar(10),
+            saddress varchar(20)
+        );
+
+        insert into student values(1,21,'Yaman','Punagam Surat');
+        insert into student values(2,22,'Gautam','Pasodara Surat');
+        insert into student values(3,23,'Parimal','Swaminarayan Surat');
+        insert into student values(4,24,'Khushi','Shayamnagar Surat');
+        insert into student values(5,25,'Bhavin','Swaminarayan Surat');
+        insert into student values(6,26,'Veer','Gokuldham Surat');
+        insert into student values(7,27,'Kashil','Citylight Surat');
+        insert into student values(8,28,'Ansh','Dangigev Surat');
+        insert into student values(9,29,'Riyan','Yogichowk Surat');
+        insert into student values(10,30,'Parag','Kargilchowk Surat');
+
+        select *from student;
+
+        select *from student where rollno=23;
+
+        select *from student order by rollno asc;
+        select *from student order by rollno desc;
+
+        delete from student where rollno=30;
+
+        drop table student;   
+
+        drop database university;
+
+        truncate table student;
+
+        SET SQL_SAFE_UPDATES = 0;
+        update university.student set saddress = 'Om-Pasodara' where sname = 'Gautam';
+
+        select * from student where sname = 'Yaman' and saddress='Punagam Surat';
+
+ex:-
+        use client;
+
+        create table PRODUCT_MASTER(
+            ProductNo varchar(20),
+            Description varchar(20),
+            Profit_Percent float,
+            Unit_Measure varchar(10),
+            QtyOnHand int,
+            RecordLvl int,
+            SellPrice int,
+            CostPrice int
+        );
+
+        insert into PRODUCT_MASTER values
+        ('P00001','T-Shirts',5,'Piece',200,50,350,250),
+        ('P0345','Shirts',6,'Piece',150,50,500,350),
+        ('P06734','Cotton Jeans',5,'Piece',100,20,600,450),
+        ('P07865','Jeans',5,'Piece',100,20,750,500),
+        ('P07868','Trousers',2,'Piece',150,50,850,550),
+        ('P07885','Pull Overs',2.5,'Piece',80,30,700,450),
+        ('P07965','Denim Shirts',4,'Piece',100,40,350,250),
+        ('P07975','Lycra Tops',5,'Piece',70,30,300,175),
+        ('P08865','Skirts',5,'Piece',75,30,450,300);
+
+        select * from Product_master;
+
+        -- products available from Product Master
+        select Description
+        from product_master;
+
+        -- change CostPrice of Trousers to 950
+        SET SQL_SAFE_UPDATES = 0;
+        update client.product_master set CostPrice = 950 where ProductNo = 'P07868';
+
+
+        -- delete record whose Qty onhand is equal to Rs.100
+        DELETE FROM product_master WHERE QtyOnHand=100;
+
+ex:-
+        use client;
+        create table SALE_MASTER(
+            SalesmanNo varchar(10),
+            SName varchar(20),
+            Address1 varchar(20),
+            Address2 varchar(20),
+            City varchar (20),
+            PinCode int,
+            State Varchar(20),
+            SalAmt int,
+            TgtAmt int,
+            YtdSales int,
+            Remarks varchar(20)
+        );
+
+        drop table SALE_MASTER;
+
+        insert into SALE_MASTER values 
+        ('S00001','Aman','A/14','Worli','Mumbai',400002,'Maharashtra',3000,100,50,'Good'),
+        ('S00002','Omkar','65','Nariman','Mumbai',400001,'Maharashtra',3000,200,100,'Good'),
+        ('S00003','Raj','P-7','Bandra','Mumbai',400032,'Maharashtra',3000,200,100,'Good'),
+        ('S00004','Ashish','A/5','Juhu','Mumbai',400044,'Maharashtra',3500,200,150,'Good');
+
+        select *from SALE_MASTER; 
+
+        -- salery equal to 3000 
+        select SName
+        from SALE_MASTER
+        where SalAmt=3000;
+
+        -- change city of salesman to Pune
+        SET SQL_SAFE_UPDATES = 0;
+        update client.sale_master set City = 'Pune';
+
+        -- delete record whose salAmt is eqal to Rs.3500
+        DELETE FROM sale_master WHERE SalAmt=3500;
+
+        -- renaming a tablename
+        ALTER TABLE sale_master RENAME TO renamedtable;
+
+    Primary Key:-
+
+                Primary key is a column or a set of column that uniquely identifies a row it main purpose is the record uniqueness
+
+                for one unique column=Primary Key
+                for multiple column combination = Composite key
+
+                Features:-
+                    -Primary key not allow duplicate values and null values
+                    -Primary key is not compulsory but it is recommended
+                    -Primary Key helps to identify one record from another record and also helps in relating tables with one another
+                    -Primary key can be long or long raw data Type
+                    -Only one primary key allow per table
+                    -unique index is created automatically if there is a primary key
+                    -one table can continue upto 16 column in a composite key
+
+                    Primary key:-
+
+                    use client;
+                    create table student(
+                            f_name varchar(20),
+                            l_name varchar(20),
+                            college varchar(30),
+                            primary key(f_name)
+                    );
+
+                    drop table student_com;
+
+                    insert into student_com values ('Gautam','Ramani','SSASIT');
+                    insert into student_com values ('Gautam','Ramani','SSASIT');
+                                                                                                    
+                    select *from student;
+
+
+                    Composite Key:-
+
+                    use client;
+
+                    create table student_com(
+                            f_name varchar(20),
+                            l_name varchar(20),
+                            college varchar(30),
+                            constraint PK_student primary key(f_name,l_name)
+                    );
+
+                    drop table student_com;
+
+                    insert into student_com values ('Gautam','Ramani','SSASIT');
+                    insert into student_com values ('Gautam','Patel','Tapi');
+                                                                                                    
+                    select *from student;
+
+        Foreign Key:-
+
+            A foreign key is a set of attributes in a table that refers to the primary key of another table. The foreign key links these two tables.
+
+    ex:-
+
+            use client;
+            create table foreign_stud(
+                grno int(4),
+                F_name varchar(20),
+                L_name varchar(20),
+                City varchar(20),
+                primary key(grno)      --parent table
+            );
+
+            insert into foreign_stud values
+            (1001,'Gautam','Ramani','Surat'),
+            (1002,'Yaman','Dudhat','Ahmedabad'),
+            (1003,'Khushi','Vadodariya','Banglore'),
+            (1004,'Parimal','Jodhani','Surat'),
+            (1005,'Bhavin','Satasiya','Vadodara');
+
+            select *from foreign_stud;
+
+
+    
+            create table foreign_result(
+                srno int(4) foreign key,
+                Maths int(3),
+                Chemistry int(3),
+                Physics int(3),
+                percentage float(3),
+                foreign key (srno) references foreign_stud(grno)    --Child Table
+            );
+
+            insert into foreign_result values
+            (1,80,95,79,85.04),
+            (2,75,78,89,85.09),
+            (3,95,98,72,83.60),
+            (4,56,79,71,80.01),
+            (5,67,76,87,85.00);
+
+            select *from foreign_result;
+
+            --here if we try to delete the parent table record(without delete child table record) it cant delete...
+            --first delete child table record after delete parent table record 
+
+****************************************************************************************************************
+
+                                    Task
+
+******************************************************************************************************************
+
+SQL Aliases:-
+
+            SQL aliases are used to give a table, or a column in a table, a temporary name.
+            An alias is created with the AS keyword.
+
+
+
+    MySQL supports the following types of joins:
+
+            1)Inner join
+            2)Left join
+            3)Right join
+            4)Cross join
+
+
+ SQL JOIN:-
+
+            A JOIN clause is used to combine rows from two or more tables, based on a related column between them.
+
+    1)Inner join:-
+                    The INNER JOIN keyword selects records that have matching values in both tables.
+                
+                    SELECT column_name(table1.column_name)
+                    FROM table1
+                    INNER JOIN table2
+                    ON table1.column_name = table2.column_name;
+                    Where Condition
+
+                    short method:-
+                    select *from table1
+                    inner join table2 on table1.column_name=table2.column_name; 
+
+    2)Left join:-
+                The LEFT JOIN keyword returns all records from the left table (table1), and the matching records from the right table (table2). 
+
+                    select *from table1
+                    left join table2 on table1.column_name=table2.column_name; 
+
+    3)Right join:-
+                    The RIGHT JOIN keyword returns all records from the right table (table2), and the matching records from the left table (table1). 
+
+                    select *from table1
+                    right join table2 on table1.column_name=table2.column_name; 
+
+    4)Cross Join:-
+                    The FULL OUTER JOIN keyword returns all records when there is a match in left (table1) or right (table2) table records.
+                    Tip: FULL OUTER JOIN and FULL JOIN are the same.
+
+                    select *from table1
+                    full outer join table2 on table1.column_name=table2.column_name; 
+
+DISTINCT:-
+
+            In MySQL, the DISTINCT clause is used with the SELECT statement to retrieve the unique records from the result set.
+
+            SELECT DISTINCT column1, column2, ...
+            FROM table_name;
+
+GROUP BY:-
+            The GROUP BY statement groups rows that have the same values into summary rows
+            The GROUP BY statement is often used with aggregate functions (COUNT(), MAX(), MIN(), SUM(), AVG()) to group the result-set by one or more columns.
+
+            SELECT column_name
+            FROM table_name
+            WHERE condition
+            GROUP BY column_name
+            having column_name;
+
+Sub Query:-
+            A Subquery or Inner query or a Nested query is a query within another SQL query and embedded within the WHERE clause.
+
+            Subqueries can be used with the SELECT, INSERT, UPDATE, and DELETE statements along with the operators like =, <, >, >=, <=, IN, BETWEEN, etc.
+
+            

@@ -1,0 +1,14 @@
+Get Method:-
+    The GET method is used to retrieve data from the server.This is a read-only method
+
+Post method:-
+    The POST method send data to the server and creates a new resource.This method is used to create a new data entry.
+
+PUT Method:-
+    The PUT method is most often used to update an existing resource.(when a client needs to replace an existing resource entirely)
+
+PATCH Method:-
+    The PATCH method is very similar to the PUT method because it also modifies an existing resource. The diffrence is that for the PUT method,the request body contains the complete new version, whereas for the PATCH method, the request body only need to contain the specific changes to the resources, specifically a set of instructions describing how that resource should be changed, and the API service will create a new version according to that instruction.(when a client needs to replace an existing resource Partial)
+
+DELETE Method:-
+    The DELETE request simply looks like this, for deleting a specific resource.

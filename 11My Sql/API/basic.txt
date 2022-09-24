@@ -1,0 +1,14 @@
+serach:-nodejs crud mysql websolutionstuff
+https://websolutionstuff.com/post/node-js-express-crud-example-with-mysql
+
+
+1)db.js
+    password:password
+    port:3306
+
+
+
+2)error raised about root localhost:-
+search:-localhost password error in mysql
+applied in mysql:-
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';

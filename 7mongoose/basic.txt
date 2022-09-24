@@ -1,0 +1,13 @@
+Mongoose:-Mongoose is an Object Data Modeling (ODM) library for MongoDB and Node.js. It manages relationships between data, provides schema validation, and is used to translate between objects in code and the representation of those objects in MongoDB.
+
+make folder 
+open cmd type npm init -y where folder is locate
+npm install mongoose
+
+mongoose.connect ():-
+The mongoose.connect () function is the easiest way to connect to MongoDB using Mongoose. Once you've connected, you can then create a Mongoose model and start interacting with MongoDB.
+
+mongoose.model ():-
+When you use mongoose.model (), your model will use the default mongoose connection. If you create a custom connection, use that connection's model () function instead.
+
+Models are responsible for all document interactions like creating, reading, updating, and deleting (CRUD).

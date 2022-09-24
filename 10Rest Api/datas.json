@@ -1,0 +1,32 @@
+[
+{
+    "name" : "Raj",
+    "rollno" : 101,
+    "marks" : 98
+},
+{
+    "name" : "Ravi",
+    "rollno" : 102,
+    "marks" : 99
+},
+{
+    "name" : "Shiva",
+    "rollno" : 103,
+    "marks" : 100
+},
+{
+    "name" : "Pavan",
+    "rollno" : 104,
+    "marks" : 80
+},
+{
+    "name" : "Riyan",
+    "rollno" : 105,
+    "marks" : 90
+},
+{
+    "name" : "Parag",
+    "rollno" : 106,
+    "marks" : 60
+}
+]

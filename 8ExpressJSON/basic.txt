@@ -1,0 +1,92 @@
+npm install express mongoose --save
+npm i dotenv
+
+Dotenv is a zero-dependency module that loads environment variables from a .env file into process.env. Storing configuration in the environment separate from code is based on The Twelve-Factor App methodology.
+
+
+What is Routing?
+Routing defines the way in which the client requests are handled by the application endpoints.
+
+Implementation of routing in Node.js: There are two ways to implement routing in node.js which are listed below:
+
+1)By Using Framework
+2)Without using Framework
+
+1)By Using Framework:-
+                    Using Framework: Node has many frameworks to help you to get your server up and running. The most popular is Express.js.
+                    Routing with Express in Node: Express.js has an “app” object corresponding to HTTP. We define the routes by using the methods of this “app” object. This app object specifies a callback function, which is called when a request is received. We have different methods in app object for a different type of request.
+
+1)   
+For GET request use app.get() method:
+var express = require('express')
+var app = express()
+
+app.get('/', function(req, res) {
+    res.send('Hello Sir')
+})
+
+2)
+For POST request use app.post() method:
+var express = require('express')
+var app = express()
+
+app.post('/', function(req, res) {
+    res.send('Hello Sir')
+})
+For handling all HTTP methods (i.e. GET, POST, PUT, DELETE etc.) use app.all() method:
+var express = require('express')
+var app = express()
+
+app.all('/', function(req, res) {
+    console.log('Hello Sir')
+    next()   // Pass the control to the next handler
+})
+
+            The next() is used to hand off the control to the next callback. Sometimes we use app.use() to specify the middleware function as the callback.
+
+            So, to perform routing with the Express.js you have only to load the express and then use the app object to handle the callbacks according to the requirement.
+
+Routing without Framework:-
+                         Using the frameworks is good to save time, but sometimes this may not suit the situation. So, a developer may need to build up their own server without other dependencies.
+Now create a file with any name using .js extension and follow the steps to perform routing from scratch:
+
+Here we will use the built in module of node.js i.e. http. So, First load http:
+var http = require('http');
+Now create server by adding the following lines of code:
+http.createServer(function (req, res) {
+    res.write('Hello World!'); // Write a response
+    res.end(); // End the response
+}).listen(3000, function() {
+    console.log("server start at port 3000"); // The server object listens on port 3000
+});
+
+Now add the following lines of code in above function to perform routing:
+
+var http = require('http');
+  http.createServer(function (req, res) {
+      
+  res.writeHead(200, {'Content-Type': 'text/html'}); 
+      
+    var url = req.url;
+      
+    if(url ==='/about') {
+        res.write(' Welcome to about us page'); 
+        res.end(); 
+    }
+    else if(url ==='/contact') {
+        res.write(' Welcome to contact us page'); 
+        res.end(); 
+    }
+    else {
+        res.write('Hello World!'); 
+        res.end(); 
+    }
+}).listen(3000, function() {
+      
+    // The server object listens on port 3000
+    console.log("server start at port 3000");
+});
+
+
+
+
