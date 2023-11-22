@@ -1,0 +1,8 @@
+Cookies: Cookies are small pieces of data that a web browser stores on the user's device. 
+         They can be set by the server and sent back and forth with each request and response. 
+         Cookies are typically stored on the client-side (user's device).
+
+Sessions: Sessions, on the other hand, involve server-side storage. 
+          A session typically starts when a user logs in and ends when they log out or when their session expires. 
+          Session data is stored on the server.
+          --It takes memory
