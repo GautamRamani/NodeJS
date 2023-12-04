@@ -1,0 +1,37 @@
+{
+  "name": "crudtypescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsc-watch --onSuccess \"node dist/app.js\"",
+    "dev:debug": "ts-node src/RWL_http.ts",
+    "lint": "eslint . --ext .ts",
+    "clean": "rimraf dist/",
+    "build": "npm run clean && tsc",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "format": "prettier --config .prettierrc 'src//*.ts' --write",
+    "start": "npm run build && node dist/RWL_http.js",
+    "start:debug": "nodemon --watch src/ --ext ts,json --exec npm run dev:debug"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/jsonwebtoken": "^9.0.5",
+    "@types/morgan": "^1.9.9",
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.0.1",
+    "morgan": "^1.10.0",
+    "rimraf": "^5.0.5",
+    "tsc-watch": "^6.0.4"
+  }
+}

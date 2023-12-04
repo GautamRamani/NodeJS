@@ -1,0 +1,2 @@
+if we have thousands of api and we forgot to make try catch and continusly server will not started..
+create common function handler will work as middleware to catch the error with api name...its a exception handling

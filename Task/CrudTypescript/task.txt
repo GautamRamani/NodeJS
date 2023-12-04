@@ -1,0 +1,2 @@
+Authentication, Authorization
+if we have thousands of api and we dont added try catch in api's so we aaded error handler to handle the error
