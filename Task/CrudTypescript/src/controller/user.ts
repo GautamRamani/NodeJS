@@ -6,13 +6,13 @@ async function user(
     res: Response,
     next: NextFunction,
 ) {
-    let { id } = req.body;
+    let id = req.user._id;
 
     let user = await User.findOne({ _id: id })
     if (user) {
-        let data={
-            name:user.name,
-            email:user.email,
+        let data = {
+            name: user.name,
+            email: user.email,
         }
         res.status(200).send({ data: data, success: true, msg: "user profile has been fetch successfuly" })
     } else {

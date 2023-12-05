@@ -13,6 +13,7 @@ async function authMiddleware(req, res, next) {
         if (!user) {
             throw new Error('token has been expired');
         }
+        req.user = user;
         next();
         return true;
     } catch (error) {

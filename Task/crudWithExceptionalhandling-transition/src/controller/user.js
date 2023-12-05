@@ -1,16 +1,9 @@
 const User = require('../model/user');
-const { profile_validate } = require("../validations/user")
 
 async function user(req, res, next) {
-    const data = req.body;
+    const id = req.user._id;
 
-    const { value: payload, error } = await profile_validate(data, res)
-
-    if (error) {
-        return res.send(error.details[0].message)
-    }
-
-    let user = await User.findOne({ _id: payload.id });
+    let user = await User.findOne({ _id: id });
     if (user) {
         let data = {
             name: user.name,

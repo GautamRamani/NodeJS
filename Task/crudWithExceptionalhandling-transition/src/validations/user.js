@@ -21,15 +21,4 @@ async function validate_login(data, res) {
     return { error, value }
 }
 
-async function profile_validate(data, res) {
-    const otpSchema = Joi.object({
-        id: Joi.string().required()
-    });
-    const { error, value } = otpSchema.validate(data);
-    
-    return { error, value }
-}
-
-
-
-module.exports = { user_signup, validate_login, profile_validate }
+module.exports = { user_signup, validate_login }
