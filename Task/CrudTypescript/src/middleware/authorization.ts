@@ -3,7 +3,7 @@ import Jwt from "jsonwebtoken";
 import User from "../model/user";
 
 export async function authMiddleware(
-    req: Request,
+    req: any,
     res: Response,
     next: NextFunction
 ) {
@@ -14,10 +14,11 @@ export async function authMiddleware(
         const data: any = Jwt.verify(authHeaders, secret)
 
         let user = await User.findOne({ _id: data.id })
-        
+
         if (!user) {
             throw new Error("token has been expired")
         }
+        req.user = user;
         next();
         return true;
     } catch (error) {
