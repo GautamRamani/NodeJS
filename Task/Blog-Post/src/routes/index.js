@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express()
-const { signUp, login } = require("../controller/userController")
+const { signUp, login, getAllUser } = require("../controller/userController")
 const { auth } = require("../middleware/auth")
 const { creatBlog, updateBlog, getBlog, removeBlog, getBlogCustom, getBlogV2 } = require("../controller/blogController")
 
@@ -15,5 +15,8 @@ router.post("/getBlog", auth, getBlog)
 router.post("/removeBlog", auth, removeBlog)
 router.post("/getBlogCustom", auth, getBlogCustom)
 router.post("/getBlogV2", auth, getBlogV2)
+
+//get All user (excel, csv)
+router.post("/getAllUser", getAllUser)
 
 module.exports = { router }
