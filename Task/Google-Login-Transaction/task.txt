@@ -1,0 +1,19 @@
+collction User 
+type:- buyer, seller
+api:-signup, login
+
+collction book
+api:- get book pagination, buyer can buy book, seller can add book and update book and delete the book, seller info, buyer info
+
+add validation, error handling, logging tech
+
+history
+ type:buyer,
+ id:buyer,
+ price:buyer,
+ qty
+
+sell count condition:- type:seller,id:seller,qty:inc
+buyer count condition:- type:buyer,id:buyer,qty:inc
+buyer expense condition:- type:buyer,id:buyer,qty*price+all
+seller profit condition:- type:seller,id:seller,qty*price+all
