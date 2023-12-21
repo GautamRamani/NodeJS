@@ -1,8 +1,0 @@
-mongodump --host="5.255.58.80:27017" --username="rwlchatapp" --password="Bmi7b4nJgloBdt4bG" --db="rwlchatapp"
-
-mongorestore --uri "mongodb://localhost:27017/rwlchatapp" ./dump/rwlchatapp
-
-4341550202791897
-235
-4 22 3 25
-darshti ramani
