@@ -60,16 +60,24 @@ async function login(req, res) {
             let user = await User.findOne({ email: payload.email })
             if (user) {
                 if (user.password === payload.password) {
-                    let accessToken = jwt.sign({ id: user._id }, "SECRET");
+                    let accessToken = jwt.sign({ id: user._id }, "SECRET", { expiresIn: '1d' });
+                    let refreshToken = jwt.sign({ id: user._id }, "REFRESH_SECRET");
+
                     await User.findOneAndUpdate({ email: user.email }, {
                         $set: {
-                            token: accessToken
+                            token: accessToken,
+                            refreshToken: refreshToken
                         }
                     }, { new: true, upsert: true })
+
                     let data = {
                         user: user.name,
-                        token: accessToken
+                        token: accessToken,
+                        refreshToken: refreshToken
                     }
+
+                    res.setHeader('new-refresh-token', refreshToken);
+
                     return res.status(200).send({ data: data, success: true, message: "User has login succesfully" })
                 } else {
                     return res.status(400).send({ status: "error", success: false, message: "password does not match!!" })
@@ -83,7 +91,6 @@ async function login(req, res) {
         console.log(error);
     }
 }
-
 async function authGoogle(req, res, next) {
     try {
         passport.authenticate("google", { scope: ["profile", "email"] })(req, res, next);

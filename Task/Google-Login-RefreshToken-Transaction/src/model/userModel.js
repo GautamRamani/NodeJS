@@ -10,6 +10,7 @@ const userSchema = new mongoose.Schema({
     },
     wallet: { type: Number },
     token: { type: String },
+    refreshToken: { type: String },
     profilePicture: { type: String },
     date: { type: Date, default: Date.now },
 });

@@ -1,0 +1,15 @@
+collction User 
+type:- buyer, seller
+api:-signup, login (regid custom authorisation by refresh token, google login)
+
+collction book
+api:- get book pagination, buyer can buy book, seller can add book and update book and delete the book, seller info, buyer info
+
+add validation, error handling, logging tech
+
+********************regid custom authorisation*************************
+
+here we create two token, token and refresh-token, token will expire in 1 day means after 24hr login senario we will see...
+when user login that time  token and refresh-token will genearte and it token will given by response and refreshtoken will be given by header
+when user call api that time refreshtoken will update, when user call same api or other api they require updated refreshtoken token it will get them 
+by headers
